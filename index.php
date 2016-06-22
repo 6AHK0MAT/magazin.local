@@ -102,9 +102,14 @@ switch ($sorting)
 
             $num = 6; // Здесь указываем сколько хотим выводить товаров.
             $page = (int)$_GET['page'];
+            //MySQL
+            //$count = mysql_query("SELECT COUNT(*) FROM table_products WHERE visible = '1'",$link);
+            //$temp = mysql_fetch_array($count);
 
-            $count = mysql_query("SELECT COUNT(*) FROM table_products WHERE visible = '1'",$link);
-            $temp = mysql_fetch_array($count);
+            //PDO
+            $count = $link->query('SELECT COUNT(*) FROM table_products WHERE visible = 1');
+            $temp = $count->fetch();
+
 
             If ($temp[0] > 0)
             {
@@ -129,7 +134,11 @@ switch ($sorting)
 
 
 
-            $result = mysql_query("SELECT * FROM table_products WHERE visible='1' ORDER BY $sorting $qury_start_num ",$link);
+            //$result = mysql_query("SELECT * FROM table_products WHERE visible='1' ORDER BY $sorting $qury_start_num ",$link);
+            $result = $link->query('SELECT * FROM table_products WHERE visible= 1');
+
+            //PDO
+            //$temp = $count->fetch();
 
             if (mysql_num_rows($result) > 0)
             {
