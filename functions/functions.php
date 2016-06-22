@@ -62,7 +62,6 @@ function send_mail($from,$to,$subject,$body)
 }
 
 
-
 // Группировка цен по разрядам.
 function group_numerals($int){
 
