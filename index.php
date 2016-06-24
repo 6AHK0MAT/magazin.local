@@ -1,5 +1,5 @@
 <?php
-//define('myeshop', true);
+//define('myeshop', true); Проверка
 include("include/db_connect.php");
 include("functions/functions.php");
 session_start();
